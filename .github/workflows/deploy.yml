@@ -3,32 +3,27 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # เปลี่ยนเป็น branch หลักของคุณ (เช่น master หรือ main)
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up Bun
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: latest  # หรือระบุเวอร์ชันเฉพาะ เช่น 1.0.0
+          bun-version: latest
 
-      # Install dependencies
       - name: Install dependencies
         run: bun install
 
-      # Build the project
       - name: Build project
         run: bun run build
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
