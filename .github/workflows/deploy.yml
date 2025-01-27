@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # เปลี่ยนเป็น branch หลักของคุณ (เช่น master หรือ main)
+      - main
 
 jobs:
   build-and-deploy:
